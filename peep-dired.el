@@ -1,4 +1,4 @@
-;;; peep-dired.el --- Peep at files in another window from dired buffers
+;;; peep-dired.el --- Peep at files in another window from dired buffers -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2014  Adam Sokolnicki
 
@@ -29,7 +29,7 @@
 
 ;;; Code:
 
-(require 'cl-macs)
+(defvar peep-dired)
 
 (defvar peep-dired-mode-map
   (let ((map (make-sparse-keymap)))
@@ -66,7 +66,7 @@
   '("mkv" "iso" "mp4")
   "Extensions to not try to open"
   :group 'peep-dired
-  :type 'list)
+  :type '(list string))
 
 (defcustom peep-dired-max-size (* 100 1024 1024)
   "Do to not try to open file exteeds this size"
@@ -90,9 +90,9 @@
 (defun peep-dired-kill-buffers-without-window ()
   "Will kill all peep buffers that are not displayed in any window"
   (interactive)
-  (cl-loop for buffer in peep-dired-peeped-buffers do
-           (unless (get-buffer-window buffer t)
-             (kill-buffer-if-not-modified buffer))))
+  (dolist (buffer peep-dired-peeped-buffers)
+    (unless (get-buffer-window buffer t)
+      (kill-buffer-if-not-modified buffer))))
 
 (defun peep-dired-dir-buffer (entry-name)
   (with-current-buffer (or
@@ -149,7 +149,7 @@
 
 ;;;###autoload
 (define-minor-mode peep-dired
-  "A convienent way to look up file contents in other window while browsing directory in dired"
+  "Look up file contents in other window while browsing directory in Dired."
   :init-value nil
   :lighter " Peep"
   :keymap peep-dired-mode-map
