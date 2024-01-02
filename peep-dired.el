@@ -140,7 +140,7 @@
     (goto-char current-point)))
 
 (defun peep-dired-enable ()
-  (unless (string= major-mode "dired-mode")
+  (unless (eq major-mode 'dired-mode)
     (error "Run it from dired buffer"))
 
   (window-configuration-to-register :peep_dired_before)
