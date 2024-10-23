@@ -1,4 +1,4 @@
-# This project is looking for a mainater, please look [here](https://github.com/asok/peep-dired/issues/17)
+# My personal fork of original Peep dired
 
 # Peep Dired
 
