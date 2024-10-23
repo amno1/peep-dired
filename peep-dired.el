@@ -28,7 +28,7 @@
 ;; Hitting <SPC> will scroll the peeped file down, whereas
 ;; C-<SPC> and <backspace> will scroll it up.
 
-;; Updated by A.M to compile, load without warnings,
+;; Updated by A.M to compile, install and load without warnings
 
 ;;; Code:
 
