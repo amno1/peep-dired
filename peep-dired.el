@@ -3,6 +3,7 @@
 ;; Copyright (C) 2014  Adam Sokolnicki
 
 ;; Author: Adam Sokolnicki <adam.sokolnicki@gmail.com>
+;; Version: 1.0.1
 ;; Keywords: files, convenience
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -26,6 +27,8 @@
 ;; C-n/C-p will display different file.
 ;; Hitting <SPC> will scroll the peeped file down, whereas
 ;; C-<SPC> and <backspace> will scroll it up.
+
+;; Updated by A.M to compile, load without warnings,
 
 ;;; Code:
 
